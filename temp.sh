@@ -10,7 +10,7 @@ do
   echo 'current temperature is: '$t'°C'
   if [ "$t" -gt "90" ];then
     echo 'temperature warning...'
-    $txt=`$machine temperature too high $t`
+    txt=`$machine temperature too high $t`
     curl "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=$key" \
      -H 'Content-Type: application/json' \
      -d '
