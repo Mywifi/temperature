@@ -17,7 +17,7 @@ do
      {
        "msgtype": "text",
        "text": {
-           "content": "$txt"
+           "content": '"$txt"'
        }
      }'
   else
