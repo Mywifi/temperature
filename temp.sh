@@ -20,6 +20,7 @@ do
            "content": '"$txt"'
        }
      }'
+     sleep 60*60
   else
     echo 'cool'
   fi
