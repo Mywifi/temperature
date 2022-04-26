@@ -1,7 +1,21 @@
 #!/bin/sh
-t=`sensors |grep Package|awk '{print $4}'| cut -b 2,3`
+$key=`cat ./key`
+$machine=`hostname`
 
-if [ "$t" -gt "90" ];then
-  echo 'temperature warning...'
-  ./msg.sh
-fi
+while sleep 5
+do
+  t=`sensors |grep Package|awk '{print $4}'| cut -b 2,3`
+  if [ "$t" -gt "90" ];then
+    echo 'temperature warning...'
+    $txt=`$machine temperature too high $t`
+    curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=$key' \
+     -H 'Content-Type: application/json' \
+     -d '
+     {
+       "msgtype": "text",
+       "text": {
+           "content": "$txt"
+       }
+     }'
+  fi
+done
