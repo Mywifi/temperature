@@ -13,14 +13,14 @@ do
     txt="$machine temperature too high $t"
     curl "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=$key" \
      -H 'Content-Type: application/json' \
-     -d '
+     -d "
      {
-       "msgtype": "text",
-       "text": {
-           "content": '"$txt"'
+       \"msgtype\": \"text\",
+       \"text\": {
+           \"content\": \"$txt\"
        }
-     }'
-     sleep 60*60
+     }"
+     sleep 3600
   else
     echo 'cool'
   fi
