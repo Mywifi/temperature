@@ -7,7 +7,7 @@ while sleep 5
 do
   date
   t=`sensors |grep Package|awk '{print $4}'| cut -b 2,3`
-  echo 'current temperature is: '$t
+  echo 'current temperature is: '$t'°C'
   if [ "$t" -gt "90" ];then
     echo 'temperature warning...'
     $txt=`$machine temperature too high $t`
