@@ -1,6 +1,7 @@
 #!/bin/sh
-$key=`cat ./key`
-$machine=`hostname`
+
+key=`cat ./key`
+machine=`hostname`
 
 while sleep 5
 do
