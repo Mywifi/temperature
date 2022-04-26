@@ -11,7 +11,7 @@ do
   if [ "$t" -gt "90" ];then
     echo 'temperature warning...'
     $txt=`$machine temperature too high $t`
-    curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=$key' \
+    curl "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=$key" \
      -H 'Content-Type: application/json' \
      -d '
      {
