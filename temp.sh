@@ -5,6 +5,7 @@ machine=`hostname`
 
 while sleep 5
 do
+  date
   t=`sensors |grep Package|awk '{print $4}'| cut -b 2,3`
   if [ "$t" -gt "90" ];then
     echo 'temperature warning...'
@@ -18,5 +19,7 @@ do
            "content": "$txt"
        }
      }'
+  else
+    echo 'cool'
   fi
 done
